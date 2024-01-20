@@ -20,7 +20,7 @@ import RestaurantPizzaForm from "./RestaurantPizzaForm";
           <Route path="/pizzas" element={<PizzaList />} />
   
           
-          <Route path="/add-restaurant-pizza" element={<RestaurantPizzaForm />} />
+          <Route path="/add_restaurant_pizza" element={<RestaurantPizzaForm />} />
   
           
         </Routes>
