@@ -7,7 +7,7 @@ function RestaurantList() {
 
   useEffect(() => {
     console.log('API request to /restaurants is being made');
-    fetch('http://localhost:5555/restaurants')
+    fetch('http://127.0.0.1:5000/api/restaurants')
       .then((response) => response.json())
       .then((data) => {
         console.log('API response data:', data);

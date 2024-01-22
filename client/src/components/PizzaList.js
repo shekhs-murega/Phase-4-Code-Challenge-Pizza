@@ -4,7 +4,7 @@ function PizzaList() {
   const [pizzas, setPizzas] = useState([]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5555/pizzas')
+    fetch('http://127.0.0.1:5000/api/pizzas')
       .then((response) => response.json())
       .then((data) => {
         console.log("Received data:", data);
