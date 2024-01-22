@@ -43,6 +43,9 @@ Add validations to Restaurant Model:
    - `pip install pipenv`
    - `pipenv install Flask`
 
+2. Install and start react
+   -`npm install`
+    
 ## CREATE $ CONFIGURE FLASK APP
 
 1. In app.py.
@@ -83,6 +86,11 @@ Add validations to Restaurant Model:
 Start the flask application:
 ```
 flask run
+```
+
+Start the react application
+```
+npm start
 ```
 ## Author & License
 
