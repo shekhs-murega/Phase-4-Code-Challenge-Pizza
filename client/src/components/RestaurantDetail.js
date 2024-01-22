@@ -9,7 +9,7 @@ function RestaurantDetail() {
 
   useEffect(() => {
     // Make an API call to get restaurant details by ID
-    fetch(`http://127.0.0.1:5000/api/restaurantbyid/${id}`)
+    fetch(`http://127.0.0.1:5000/api/restaurant/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -26,7 +26,7 @@ function RestaurantDetail() {
 
   const handleDelete = () => {
     // Make an API call to delete the restaurant by ID
-    fetch(`http://127.0.0.1:5000/api/restaurantbyid/${id}`, {
+    fetch(`http://127.0.0.1:5000/api/restaurant/${id}`, {
       method: 'DELETE',
     })
       .then((response) => {
