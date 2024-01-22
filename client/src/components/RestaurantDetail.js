@@ -3,13 +3,12 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 function RestaurantDetail() {
   const { id } = useParams();
-  const navigate = useNavigate(); // Use useNavigate hook to navigate
+  const navigate = useNavigate();
 
   const [restaurant, setRestaurant] = useState(null);
 
   useEffect(() => {
-    // Make an API call to get restaurant details by ID
-    fetch(`http://127.0.0.1:5000/api/restaurant/${id}`)
+    fetch(`http://127.0.0.1:5000/api/restaurantbyid/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -25,7 +24,6 @@ function RestaurantDetail() {
   }, [id]);
 
   const handleDelete = () => {
-    // Make an API call to delete the restaurant by ID
     fetch(`http://127.0.0.1:5000/api/restaurant/${id}`, {
       method: 'DELETE',
     })
@@ -33,8 +31,7 @@ function RestaurantDetail() {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        // Restaurant deleted successfully, navigate to a different page
-        navigate('/restaurants'); // Use navigate to go to a different route
+        navigate('/restaurants');
       })
       .catch((error) => {
         console.error('Delete error:', error);
@@ -49,12 +46,16 @@ function RestaurantDetail() {
           <p className="restaurant-address">{restaurant.address}</p>
           <h2>Pizzas:</h2>
           <ul>
-            {restaurant.pizzas.map((pizza) => (
-              <li key={pizza.id}>
-                <h3>{pizza.name}</h3>
-                <p>Ingredients: {pizza.ingredients}</p>
-              </li>
-            ))}
+            {restaurant.pizzas ? (
+              restaurant.pizzas.map((pizza) => (
+                <li key={pizza.id}>
+                  <h3>{pizza.name}</h3>
+                  <p>Ingredients: {pizza.ingredients}</p>
+                </li>
+              ))
+            ) : (
+              <p>No pizzas available for this restaurant.</p>
+            )}
           </ul>
           <button onClick={handleDelete}>Delete Restaurant</button>
         </>
